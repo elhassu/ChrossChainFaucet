@@ -1,7 +1,53 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
 @tailwind utilities;
+
+@theme {
+  --color-ebony-clay-50: #f3f6fb;
+  --color-ebony-clay-100: #e4e9f5;
+  --color-ebony-clay-200: #d0d9ed;
+  --color-ebony-clay-300: #b0c1e0;
+  --color-ebony-clay-400: #89a0d1;
+  --color-ebony-clay-500: #6d83c4;
+  --color-ebony-clay-600: #5a6bb6;
+  --color-ebony-clay-700: #4f5ba6;
+  --color-ebony-clay-800: #454c88;
+  --color-ebony-clay-900: #3b426d;
+  --color-ebony-clay-950: #2a2d48;
+  --color-trout-50: #f6f7f9;
+  --color-trout-100: #eceef2;
+  --color-trout-200: #d6d9e1;
+  --color-trout-300: #b2b8c7;
+  --color-trout-400: #9CA1B1;
+  --color-trout-500: #69758e;
+  --color-trout-550: #616779;
+  --color-trout-600: #5E6578;
+  --color-trout-700: #454c60;
+  --color-trout-800: #3b4151;
+  --color-trout-900: #353945;
+  --color-trout-950: #23262e;
+  --color-ship-cove-50: #f4f6fa;
+  --color-ship-cove-100: #e5e9f4;
+  --color-ship-cove-200: #d1daec;
+  --color-ship-cove-300: #b1c2df;
+  --color-ship-cove-400: #8ca2ce;
+  --color-ship-cove-500: #697fbd;
+  --color-ship-cove-600: #5e6eb2;
+  --color-ship-cove-700: #535fa2;
+  --color-ship-cove-800: #484f85;
+  --color-ship-cove-900: #3d446b;
+  --color-ship-cove-950: #282b43;
+  --color-web-orange-50: #fffcea;
+  --color-web-orange-100: #fff5c5;
+  --color-web-orange-200: #ffec85;
+  --color-web-orange-300: #ffdb46;
+  --color-web-orange-400: #ffc81b;
+  --color-web-orange-500: #ffa600;
+  --color-web-orange-600: #e27d00;
+  --color-web-orange-700: #bb5602;
+  --color-web-orange-800: #984208;
+  --color-web-orange-900: #7c370b;
+  --color-web-orange-950: #481b00;
+}
 
 :root {
   --background: #ffffff;
