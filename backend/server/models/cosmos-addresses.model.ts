@@ -1,4 +1,4 @@
-import { ICosmosAddressModel } from "@/interfaces/ICosmosAddress";
+import { ICosmosAddressModel } from "@/server/interfaces/ICosmosAddress";
 import { Schema, model } from "mongoose";
 
 const CosmosAddressSchema = new Schema<ICosmosAddressModel>(

@@ -1,4 +1,4 @@
-import { IClaimModel } from "@/interfaces/IClaims";
+import { IClaimModel } from "@/server/interfaces/IClaims";
 import { Schema, model } from "mongoose";
 
 const ClaimSchema = new Schema<IClaimModel>(

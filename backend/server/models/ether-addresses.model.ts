@@ -1,5 +1,5 @@
 import { Schema, model, Document } from "mongoose";
-import { IEtherAddressModel } from "@/interfaces/IEtherAddress";
+import { IEtherAddressModel } from "@/server/interfaces/IEtherAddress";
 
 const EtherAddressSchema = new Schema<IEtherAddressModel>(
 	{

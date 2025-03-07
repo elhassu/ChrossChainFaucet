@@ -35,7 +35,7 @@
     ".next/types/**/*.ts",
     "app/page.jsx",
     "app/layout.jsx"
-  ],
+, "components/info/InfoList.jsx", "components/buttons/ConnectButton.jsx", "components/buttons/ActionButtonList.jsx"  ],
   "exclude": [
     "node_modules"
   ]
