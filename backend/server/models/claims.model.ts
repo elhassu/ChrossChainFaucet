@@ -4,18 +4,12 @@ import { Schema, model } from "mongoose";
 const ClaimSchema = new Schema<IClaimModel>(
 	{
 		cosmosAddressId: {
-			type: Schema.Types.ObjectId,
-			ref: "CosmosAddress",
+			type: String,
 			required: true,
 		},
 		etherAddressId: {
-			type: Schema.Types.ObjectId,
-			ref: "EtherAddress",
+			type: String,
 			required: true,
-		},
-		claimTimestamp: {
-			type: Date,
-			default: Date.now,
 		},
 		transactionHash: {
 			type: String,
