@@ -3,7 +3,7 @@ export function ButtonPrimary(props) {
 
 	return (
 		<Element
-			className={`rounded-xl bg-web-orange-500 px-3 py-3 whitespace-nowrap font-bold ${className}`}
+			className={`rounded-xl bg-web-orange-500 px-3 py-3 whitespace-nowrap font-bold ${className} cursor-pointer`}
 			{...rest}
 		>
 			{children}

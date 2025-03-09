@@ -1,7 +1,7 @@
 export default function Card({ children, ...props }) {
 	return (
 		<div
-			className="pt-4 p-8 md:p-12 md:pt-4 bg-trout-700 border-trout-550 border-solid border rounded-4xl shadow-2xl"
+			className="pt-4 p-8 md:p-12 md:pt-4 bg-trout-700 border-trout-550 border-solid border rounded-4xl shadow-2xl w-screen max-w-[488px]"
 			{...props}
 		>
 			<div className="flex flex-row justify-center pb-6">
@@ -12,7 +12,7 @@ export default function Card({ children, ...props }) {
 					/>
 				))}
 			</div>
-			<div className="text-center w-[392px] min-h-[240px]">{children}</div>
+			<div className="text-center min-h-[240px] h-full">{children}</div>
 		</div>
 	);
 }

@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 import ContextProvider from "@/ui/context";
 
@@ -10,7 +11,10 @@ export default async function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body>
-				<ContextProvider>{children}</ContextProvider>
+				<ContextProvider>
+					<Toaster position="bottom-center" />
+					{children}
+				</ContextProvider>
 			</body>
 		</html>
 	);

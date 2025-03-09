@@ -1,5 +1,5 @@
 import css from "./spinner.module.css";
 
 export default function Spinner({ className = "" }) {
-	return <span className={`${css.loader} ${className}`}></span>;
+	return <div className={`${css.loader} ${className}`}></div>;
 }
