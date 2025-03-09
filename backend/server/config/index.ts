@@ -9,6 +9,6 @@ if (!MONGO_URI) {
 export default {
   MONGO_URI,
   VALIDATOR_ADDRESS: "cosmosvaloper124maqmcqv8tquy764ktz7cu0gxnzfw54n3vww8",
-  PORT: process.env.PORT || 3000,
+  PORT: process.env.PORT || 3001,
   NODE_ENV: process.env.NODE_ENV || 'development',
 };
