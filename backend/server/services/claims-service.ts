@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import {ethers} from "ethers"
-import claimsModel from '../models/claims.model';
+import claimsModel from '../models/claims-model';
 
 const { OWNER_PRIVATE_KEY, CONTRACT_ADDRESS } = process.env;
 if (!OWNER_PRIVATE_KEY || !CONTRACT_ADDRESS) {

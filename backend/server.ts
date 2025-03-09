@@ -2,9 +2,9 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import config from './config';
-import { faucetRouter } from './routes/faucet.router';
-import { errorHandler } from './utils/error-handler.util';
+import config from './server/config/config';
+import { faucetRouter } from './server/routes/faucet-router';
+import { errorHandler } from './server/utils/error-handler-util';
 
 (async () => {
   try {

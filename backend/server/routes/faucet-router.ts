@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { asyncHandler } from "../utils/async-handler.util";
-import { faucetController } from "../controllers/faucet.controller";
+import { asyncHandler } from "../utils/async-handler-util";
+import { faucetController } from "../controllers/faucet-controller";
 
 const router = Router();
 

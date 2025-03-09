@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import cosmosHubService from "../services/cosmos-hub.service";
-import config from "../config";
+import cosmosHubService from "../services/cosmos-hub-service";
+import config from "../config/config";
 import { IErrorToBeCaught } from "../interfaces/rest/IResponse";
-import claimsService from "../services/claims.service";
+import claimsService from "../services/claims-service";
 
 export async function faucetController(req: Request, res: Response) {
     const { etherAddress, cosmosAddress } = req.body as { etherAddress?: string, cosmosAddress?: string };
