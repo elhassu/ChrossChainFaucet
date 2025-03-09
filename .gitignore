@@ -3,6 +3,8 @@
 # dependencies
 /backend/node_modules
 /backend/package-lock.json
+/frontend/node_modules
+/frontend/package-lock.json
 /node_modules
 /.pnp
 .pnp.*
@@ -16,11 +18,12 @@
 /coverage
 
 # next.js
-/backend/.next/
+/frontend/.next/
 /out/
 
 # production
 /build
+/backend/dist
 /bin
 
 # misc

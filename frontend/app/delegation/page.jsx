@@ -1,13 +1,15 @@
+import { ConnectWalletCTA } from "@/ui/components/buttons/CallToActions";
+import { ReownConnectButton } from "@/ui/components/buttons/ReownConnectButton";
+import Card from "@/ui/components/cards/Card";
 import Image from "next/image";
-import Card from "@/components/cards/Card";
-import { ConnectWalletCTA } from "@/components/buttons/CallToActions";
+import { InfoList } from "@/ui/components/info/InfoList";
 
-export default function Home() {
+export default function DelegationAnalysis() {
 	return (
 		<div className="grid grid-rows-[20px_1fr_min-content] items-center justify-items-center min-h-screen py-8 gap-16 font-[family-name:var(--font-geist-sans)] bg-ebony-clay-950">
 			<header className="row-start-1 w-full">
 				<nav className="flex flex-row gap-8 justify-between list-none px-6">
-					<li className="font-bold text-lg">Faucet</li>
+					<li className="font-bold text-lg">Delegation Analysis</li>
 					<li>
 						<ConnectWalletCTA />
 					</li>
@@ -15,13 +17,9 @@ export default function Home() {
 			</header>
 			<main className="flex flex-col gap-8 row-start-2 items-center sm:items-start ">
 				<Card>
-						<h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-							Choose a network to start
-						</h1>
-						<p className="text-base md:text-lg font-normal my-4 md:my-8 mb-6 md:mb-12 text-balance text-trout-400">
-							Connect your wallet, then choose a network to view delegation data specific to that network.
-						</p>
-						<ConnectWalletCTA />
+					<h1 className="text-3xl md:text-4xl font-extrabold tracking-tight pt-8">Choose wallet</h1>
+					<ReownConnectButton />
+					<InfoList />
 				</Card>
 			</main>
 			<footer className="row-start-3">

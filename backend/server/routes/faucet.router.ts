@@ -1,16 +1,12 @@
 import { Router } from "express";
 import { asyncHandler } from "../utils/async-handler.util";
+import { faucetController } from "../controllers/faucet.controller";
 
-export function faucetRouter(nextApp: any) {
-	const router = Router();
+const router = Router();
 
-	router.post(
-		"/",
-		asyncHandler(async (req, res) => {
-			// implement faucet logic
-			res.status(501).json({ error: "Not Implemented" });
-		}),
-	);
+router.post(
+	"/",
+	asyncHandler(faucetController),
+);
 
-	return router;
-}
+export { router as faucetRouter };

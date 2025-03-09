@@ -1,5 +1,5 @@
 import "./globals.css";
-import ContextProvider from "@/context";
+import ContextProvider from "@/ui/context";
 
 export const metadata = {
 	title: "AppKit in Next.js + ethers",
