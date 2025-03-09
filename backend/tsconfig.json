@@ -17,11 +17,6 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
     "paths": {
       "@/*": [
         "./*"
@@ -31,16 +26,8 @@
     "noEmit": true
   },
   "include": [
-    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "../frontend/.next/types/**/*.ts",
-    "../frontend/app/page.jsx",
-    "../frontend/app/layout.jsx",
-    "components/info/InfoList.jsx",
-    "components/buttons/ConnectButton.jsx",
-    "components/buttons/ActionButtonList.jsx",
-    "next.config.ts"
   ],
   "exclude": [
     "node_modules"
