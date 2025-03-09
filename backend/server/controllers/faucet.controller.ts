@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import cosmosHubService from "../services/cosmos-hub.service";
 import config from "../config";
 import { IErrorToBeCaught } from "../interfaces/rest/IResponse";
+import claimsService from "../services/claims.service";
 
 export async function faucetController(req: Request, res: Response) {
     const { etherAddress, cosmosAddress } = req.body as { etherAddress?: string, cosmosAddress?: string };
@@ -20,10 +21,14 @@ export async function faucetController(req: Request, res: Response) {
     if (!delegatorValidators?.length) throw { statusCode: 400, message: 'No Validators Found' } as IErrorToBeCaught;
     if (!delegatorValidators.includes(config.VALIDATOR_ADDRESS)) throw { statusCode: 400, message: 'Validator Not Found' } as IErrorToBeCaught;
 
-    // todo - implement faucet logic
+    const { eligible, message } = await claimsService.eligibleForFaucet({ etherAddress, cosmosAddress });
+
+    if (!eligible) throw { statusCode: 400, message } as IErrorToBeCaught;
+
+    const transactionHash = await claimsService.transfer({ etherAddress, cosmosAddress });
 
     res.json({
         message: 'Faucet request successful',
-        // transactionHash:
+        transactionHash
     });
 }
