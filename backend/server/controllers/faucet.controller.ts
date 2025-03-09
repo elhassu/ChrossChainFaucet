@@ -17,7 +17,7 @@ export async function faucetController(req: Request, res: Response) {
         throw { statusCode: 400, message: 'Invalid Cosmos Address' } as IErrorToBeCaught;
     }
 
-    if (!delegatorValidators.length) throw { statusCode: 400, message: 'No Validators Found' } as IErrorToBeCaught;
+    if (!delegatorValidators?.length) throw { statusCode: 400, message: 'No Validators Found' } as IErrorToBeCaught;
     if (!delegatorValidators.includes(config.VALIDATOR_ADDRESS)) throw { statusCode: 400, message: 'Validator Not Found' } as IErrorToBeCaught;
 
     // todo - implement faucet logic
