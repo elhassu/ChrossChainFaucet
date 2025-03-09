@@ -1,5 +1,6 @@
 // server/server.ts
 import express from 'express';
+import cors from 'cors';
 import mongoose from 'mongoose';
 import config from './config';
 import { faucetRouter } from './routes/faucet.router';
@@ -16,6 +17,7 @@ import { errorHandler } from './utils/error-handler.util';
     const server = express();
 
     // 3. Global middlewares
+    server.use(cors())
     server.use(express.json());
 
     // 4. Define routes
