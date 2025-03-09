@@ -1,19 +1,29 @@
 import { Request, Response } from "express";
+import cosmosHubService from "../services/cosmos-hub.service";
+import config from "../config";
+import { IErrorToBeCaught } from "../interfaces/rest/IResponse";
 
-export function faucetController(req: Request, res: Response) {
-	const { etherAddress, cosmosAddress } = req.body as { etherAddress: string, cosmosAddress: string };
+export async function faucetController(req: Request, res: Response) {
+    const { etherAddress, cosmosAddress } = req.body as { etherAddress?: string, cosmosAddress?: string };
 
-    if (!etherAddress) {
-        res.status(400).json({ error: 'Missing etherAddress' });
-        return;
+    if (!etherAddress) throw { statusCode: 400, message: 'Missing Ether Address' } as IErrorToBeCaught;
+    if (!cosmosAddress) throw { statusCode: 400, message: 'Missing Cosmos Address' } as IErrorToBeCaught;
+
+    let delegatorValidators: string[];
+
+    try {
+        delegatorValidators = (await cosmosHubService.getDelegatorValidators(cosmosAddress)).validators;
+    } catch (error) {
+        throw { statusCode: 400, message: 'Invalid Cosmos Address' } as IErrorToBeCaught;
     }
 
-    if (!cosmosAddress) {
-        res.status(400).json({ error: 'Missing cosmosAddress' });
-        return;
-    }
+    if (!delegatorValidators.length) throw { statusCode: 400, message: 'No Validators Found' } as IErrorToBeCaught;
+    if (!delegatorValidators.includes(config.VALIDATOR_ADDRESS)) throw { statusCode: 400, message: 'Validator Not Found' } as IErrorToBeCaught;
 
-    let cosmosAddressValid = true;
-    // perform validate cosmos address
+    // todo - implement faucet logic
 
+    res.json({
+        message: 'Faucet request successful',
+        // transactionHash:
+    });
 }

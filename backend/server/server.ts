@@ -17,7 +17,6 @@ import { errorHandler } from './utils/error-handler.util';
 
     // 3. Global middlewares
     server.use(express.json());
-    server.use(errorHandler);
 
     // 4. Define routes
     server.use('/faucet', faucetRouter);
