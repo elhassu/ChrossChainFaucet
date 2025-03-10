@@ -11,7 +11,7 @@ import { errorHandler } from './server/utils/error-handler-util';
 
     // 1. Connect to MongoDB
     await mongoose.connect(config.MONGO_URI);
-    console.log('Connected to MongoDB');
+    console.log('Connected to MongoDB: ',mongoose.connection.readyState);
 
     // 2. Create Express server
     const server = express();
