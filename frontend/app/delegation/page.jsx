@@ -37,6 +37,11 @@ function DisplayTransactionHash({ transactionHash }) {
 		<Card>
 			<h1 className="text-3xl md:text-4xl font-extrabold tracking-tight pt-8">Transaction Hash</h1>
 			<p className="text-base md:text-lg font-normal my-4 md:my-8 mb-6 md:mb-12 text-balance text-trout-400">
+				Congratulations on a successful transaction! <br/>
+				10 HSS have been sent to your address. <br/>
+				Here is your transaction hash:
+			</p>
+			<p className="text-base md:text-lg font-normal my-4 md:my-8 mb-6 md:mb-12 text-trout-400 text-wrap w-full break-all">
 				{transactionHash}
 			</p>
 		</Card>
