@@ -1,5 +1,6 @@
 import {ethers} from "ethers"
 import claimsModel from '../models/claims-model';
+import SMART_CONTRACT from "../utils/smart-contract/contract_abi.json";
 
 const { OWNER_PRIVATE_KEY, CONTRACT_ADDRESS, RPC_PROVIDER } = process.env;
 if (!OWNER_PRIVATE_KEY || !CONTRACT_ADDRESS) {
@@ -8,8 +9,7 @@ if (!OWNER_PRIVATE_KEY || !CONTRACT_ADDRESS) {
 }
 
 async function getContractABI(){
-    const data = require("../utils/smart-contract/contract_abi.json");
-    const abi = data['abi'];
+    const abi = SMART_CONTRACT['abi'];
     return abi;
 }
 
