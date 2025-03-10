@@ -31,19 +31,27 @@ class ClaimsService {
             const txResponse = await faucetContract.transfer(etherAddress);
             console.log("Transaction submitted. Hash:", txResponse.hash);
 
+            const newClaim = await claimsModel.create({ cosmosAddress, etherAddress, transactionHash: txResponse.hash });
+            console.log("Document created:", newClaim);
+
             const receipt = await txResponse.wait();
             console.log(`Transaction confirmed in block ${receipt.blockNumber}`);
 
-            await claimsModel.create({ cosmosAddress, etherAddress, transactionHash: txResponse.hash });
 
             return txResponse.hash;
     }
 
     public async eligibleForFaucet({ cosmosAddress }: { etherAddress: string, cosmosAddress: string }) {
         const claims = await claimsModel.find({ cosmosAddress }).sort({ createdAt: -1 }).limit(3);
+        console.debug("All claims:", claims);
 
-        const last3TransactionsWithin24Hours = claims.filter(claim => Date.now() - claim.createdAt.getTime() < 24 * 60 * 60 * 1000);
+        const last3TransactionsWithin24Hours = claims.filter(claim => {
+            if (!claim.createdAt) return false;
+            const createdAtDate = new Date(claim.createdAt);
+            return Date.now() - createdAtDate.getTime() < 24 * 60 * 60 * 1000;
+        });
 
+        console.debug("Claims in the last 24 hours:", last3TransactionsWithin24Hours);
         if (last3TransactionsWithin24Hours.length >= 3) {
             return { eligible: false, message: "You have already claimed 3 times in the last 24 hours" };
         }
