@@ -32,7 +32,18 @@ function Loader() {
 	);
 }
 
-function ConnectCosmosAddress({ etherAddress }) {
+function DisplayTransactionHash({ transactionHash }) {
+	return (
+		<Card>
+			<h1 className="text-3xl md:text-4xl font-extrabold tracking-tight pt-8">Transaction Hash</h1>
+			<p className="text-base md:text-lg font-normal my-4 md:my-8 mb-6 md:mb-12 text-balance text-trout-400">
+				{transactionHash}
+			</p>
+		</Card>
+	);
+}
+
+function ConnectCosmosAddress({ etherAddress, setTransactionHash }) {
 	const [cosmosAddress, setCosmosAddress] = useState("");
 	const [loading, setLoading] = useState(false);
 
@@ -51,6 +62,7 @@ function ConnectCosmosAddress({ etherAddress }) {
 		})
 			.then((response) => {
 				toast.success(response.data.message);
+				setTransactionHash(response.data.transactionHash);
 			})
 			.catch((error) => {
 				toast.error(error.response.data.message);
@@ -89,6 +101,7 @@ function ConnectCosmosAddress({ etherAddress }) {
 
 export default function DelegationAnalysis() {
 	const { address: etherAddress } = useAppKitAccount();
+	const [transactionHash, setTransactionHash] = useState("");
 
 	return (
 		<div className="grid grid-rows-[20px_1fr_min-content] items-center justify-items-center min-h-screen py-8 gap-16 font-[family-name:var(--font-geist-sans)] bg-ebony-clay-950">
@@ -102,7 +115,13 @@ export default function DelegationAnalysis() {
 			</header>
 			<main className="flex flex-col gap-8 row-start-2 items-center xs:items-start ">
 				{!etherAddress ? <ConnectThroughMetaMask /> : null}
-				{etherAddress ? <ConnectCosmosAddress etherAddress={etherAddress} /> : null}
+				{etherAddress && !transactionHash ? (
+					<ConnectCosmosAddress
+						etherAddress={etherAddress}
+						setTransactionHash={(hash) => setTransactionHash(hash)}
+					/>
+				) : null}
+				{transactionHash ? <DisplayTransactionHash transactionHash={transactionHash} /> : null}
 			</main>
 			<footer className="row-start-3">
 				<Image
