@@ -1,15 +1,14 @@
 "use client";
-import { ConnectWalletCTA } from "@/ui/components/buttons/CallToActions";
-import { ReownConnectButton } from "@/ui/components/buttons/ReownConnectButton";
-import Card from "@/ui/components/cards/Card";
+import { ConnectWalletCTA } from "../../components/buttons/CallToActions";
+import { ReownConnectButton } from "../../components/buttons/ReownConnectButton";
+import Card from "../../components/cards/Card";
 import Image from "next/image";
-import { InfoList } from "@/ui/components/info/InfoList";
 import { useState } from "react";
 import { useAppKitAccount } from "@reown/appkit/react";
-import { ButtonPrimary } from "@/ui/components/buttons/DefaultButtons";
+import { ButtonPrimary } from "../../components/buttons/DefaultButtons";
 import axios from "axios";
 import toast from "react-hot-toast";
-import Spinner from "@/ui/components/Loaders/Spinner";
+import Spinner from "../../components/loaders/Spinner";
 
 function ConnectThroughMetaMask() {
 	return (

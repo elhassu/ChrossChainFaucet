@@ -1,6 +1,6 @@
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
-import ContextProvider from "@/ui/context";
+import ContextProvider from "../context";
 
 export const metadata = {
 	title: "AppKit in Next.js + ethers",

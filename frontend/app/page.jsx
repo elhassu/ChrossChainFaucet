@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Card from "@/ui/components/cards/Card";
-import { ConnectWalletCTA } from "@/ui/components/buttons/CallToActions";
+import Card from "../components/cards/Card";
+import { ConnectWalletCTA } from "../components/buttons/CallToActions";
 
 export default function Home() {
 	return (

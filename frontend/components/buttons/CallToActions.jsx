@@ -1,4 +1,4 @@
-import { ButtonPrimary } from "@/ui/components/buttons/DefaultButtons";
+import { ButtonPrimary } from "../buttons/DefaultButtons";
 import Link from "next/link";
 
 export function ConnectWalletCTA() {
