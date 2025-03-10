@@ -3,11 +3,11 @@ import { Schema, model } from "mongoose";
 
 const ClaimSchema = new Schema<IClaimModel>(
 	{
-		cosmosAddressId: {
+		cosmosAddress: {
 			type: String,
 			required: true,
 		},
-		etherAddressId: {
+		etherAddress: {
 			type: String,
 			required: true,
 		},
@@ -18,6 +18,6 @@ const ClaimSchema = new Schema<IClaimModel>(
 	{ timestamps: true },
 );
 
-ClaimSchema.index({ cosmosAddressId: 1, claimTimestamp: 1 });
+ClaimSchema.index({ cosmosAddress: 1, createdAt: 1 });
 
 export default model<IClaimModel>("Claims", ClaimSchema);
